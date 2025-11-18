@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎙️ Voice Chat</h1>
+        <p>Peer-to-peer voice communication</p>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <!-- Setup Panel -->
+            <div id="setup-panel" class="panel">
+                <h2>👤 Setup Connection</h2>
+                
+                <div class="input-group">
+                    <label for="user-id">Your Name:</label>
+                    <input type="text" id="user-id" placeholder="e.g., alice" />
+                </div>
+                
+                <div class="input-group">
+                    <label for="target-id">Friend's Name:</label>
+                    <input type="text" id="target-id" placeholder="e.g., bob" />
+                </div>
+                
+                <button id="connect-btn" class="btn btn-primary">
+                    🔗 Connect to Server
+                </button>
+            </div>
+
+            <!-- Call Panel -->
+            <div id="call-panel" class="panel" style="display: none;">
+                <h2>📞 Call Controls</h2>
+                
+                <div class="status-bar">
+                    <p id="status-text">Ready to call</p>
+                    <div id="status-dot" class="dot"></div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="call-btn" class="btn btn-success">
+                        📞 Start Call
+                    </button>
+                    <button id="hangup-btn" class="btn btn-danger" disabled>
+                        📴 Hang Up
+                    </button>
+                </div>
+                
+                <div class="controls">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="mute-toggle" checked />
+                        <span>🎤 Mic On</span>
+                    </label>
+                    
+                    <div class="volume-control">
+                        <label>🔊 Volume:</label>
+                        <input type="range" id="volume-slider" min="0" max="100" value="100" />
+                        <span id="volume-value">100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="panel info-panel">
+                <h3>ℹ️ Connection Info</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Your ID:</strong>
+                        <span id="display-user-id">-</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Connected To:</strong>
+                        <span id="connected-peer">-</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Status:</strong>
+                        <span id="connection-status">Disconnected</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Audio element -->
+    <audio id="remote-audio" autoplay></audio>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
